@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #E9F1FA;
+    }
+    .boxstyle {
+      text-align: center;
+      padding: 1%;
+      margin: 15px;
+      background-color: transparent;
+    }
+    #image {
+      height: 150px;
+      width: 100%;
+      border-radius: 10px;
+    }
+    .product-buy {
+      width: 100px;
+      height: 50px;
+      font-size: 15px;
+      padding: 1px;
+      margin-left: 35px;
+      margin-top: 0% !important;
+      background-color: #00ABE4;
+      color: white;
+      border-radius: 15px;
+      border: 1px solid white;
+      display: inline-block;
+      margin-right: 5px;
+    }
+    .product-buy:active {
+      background-color: white;
+      color: #00ABE4
+    }
+    .button-settings {
+        display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+      margin-top: 10px;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <button id="clear" class="product-buy">Clear</button>
+  <div id="div"></div>
+
+  <!-- Bootstrap Cards -->
+  <div class="container">
+    <div class="row" id="bootstrap-cards">
+    </div>
+  </div>
+
+  <script>
+    let products = {
+      data: [
+        {
+          id: 1,
+          productName: "Regular White T-Shirt",
+          category: "Topwear",
+          price: "30",
+          image: "white-tshirt.jpg",
+        },
+        {
+          id: 2,
+          productName: "Beige Short Skirt",
+          category: "Bottomwear",
+          price: "49",
+          image: "short-skirt.jpg",
+        },
+        {
+          id: 3,
+          productName: "Sporty SmartWatch",
+          category: "Watch",
+          price: "99",
+          image: "sporty-smartwatch.jpg",
+        },
+        {
+          id: 4,
+          productName: "Basic Knitted Top",
+          category: "Topwear",
+          price: "29",
+          image: "knitted-top.jpg",
+        },
+        {
+          id: 5,
+          productName: "Black Leather Jacket",
+          category: "Jacket",
+          price: "129",
+          image: "black-leather-jacket.jpg",
+        },
+        {
+          id: 6,
+          productName: "Stylish Pink Trousers",
+          category: "Bottomwear",
+          price: "89",
+          image: "pink-trousers.jpg",
+        },
+        {
+          id: 7,
+          productName: "Brown Men's Jacket",
+          category: "Jacket",
+          price: "189",
+          image: "brown-jacket.jpg",
+        },
+        {
+          id: 8,
+          productName: "Comfy Gray Pants",
+          category: "Bottomwear",
+          price: "49",
+          image: "comfy-gray-pants.jpg",
+        },
+      ],
+    };
+
+    let btn = document.getElementById("clear");
+    btn.addEventListener("click", () => {
+      localStorage.removeItem("cart");
+      location.reload();
+    });
+
+    let cartgetting = localStorage.getItem("cart");
+    console.log(cartgetting);
+    cartgetting == null ? (cartgetting = []) : (cartgetting = JSON.parse(cartgetting));
+
+    let divget = document.getElementById("div");
+
+    cartgetting.map((val, ind) => {
+      let bootstrapCards = document.getElementById("bootstrap-cards");
+
+      let card = document.createElement("div");
+      card.className = "col-md-4";
+
+      let cardContent = `
+        <div class="card mb-3" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="${val.image}" class="img-fluid rounded-start" alt="Product Image">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">${val.productName}</h5>
+                <p class="card-text">Category: ${val.category}</p>
+                <p class="card-text">Price: $${val.price}</p>
+                <div class="button-settings">
+                <button class="product-buy remove-btn">Remove</button>
+                <button class="product-buy btnbuy" >buy now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      card.innerHTML = cardContent;
+      bootstrapCards.appendChild(card);
+
+      let removeBtn = card.querySelector('.remove-btn');
+      removeBtn.addEventListener("click", () => {
+        cartgetting.splice(ind, 1);
+        localStorage.setItem("cart", JSON.stringify(cartgetting));
+        bootstrapCards.removeChild(card);
+      });
+      let btnbuy=card.querySelector('.btnbuy');
+      btnbuy.addEventListener("click",()=>{window.location.assign("./buyy.html")})
+
+    });
+  </script>
+</body>
+</html>

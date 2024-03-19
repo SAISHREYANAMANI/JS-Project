@@ -1,0 +1,112 @@
+
+<!DOCTYPE html
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color:  #00ABE4;
+      }
+
+      .btnlogin{
+        width: 100px;
+        padding: 0.5%;
+        background-color:#00ABE4;
+        color:white;
+        font-size: 20px;
+        border-radius: 5px;
+        margin-bottom: 3%;
+      }
+      .container {
+        position: relative;
+        top: 160px;
+        left: 36%;
+        border: 5px solid white;
+        width: 300px;
+        padding: 2%;
+        box-shadow: 0px 0px 4px 4px silver;
+        border-radius: 40px;
+      }
+      .lbel {
+        margin-bottom: 5%;
+      }
+      #login{
+        background-color:#00ABE4;
+        color:white;
+        padding: 3% 3%;
+        border-radius: 5px;
+        width: 100%;
+        font-size: 16px;
+        border: 2px solid white;
+      }
+      #login:active{
+        background-color:white;
+        color: #00ABE4
+      }
+      input{
+        width: 100%;
+        font-size: large;
+        background-color:white;
+        color:black;
+        border: 1px solid white;
+        padding:2%;
+      }
+      label{
+        font-size: larger;
+        color:white;
+      }
+      h1{
+        color: white;
+        text-shadow: 0 0 5px  #E9F1FA; 
+        margin-top:2%;
+        margin-left: 40%;
+        text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Login form </h1>
+    <div class="container">
+      <form action="">
+        <label for="username" id="userlbel">Username : </label><br><br>
+        <input type="text" required placeholder="Username..." class="lbel" id="user"/><br /><br>
+        <label for="Password" id="plabel">Password : </label><br><br>
+        <input type="password" required placeholder="Password..." class="lbel" id="pass"/><br /><br>
+        <button id="login">Login</button>
+      </form>
+      <script>
+        let usernameget=document.getElementById("user");
+        let passwordget=document.getElementById("pass");
+        let form = document.forms;
+        console.log(form[0]);
+        form[0].addEventListener("submit", (e) => {
+          e.preventDefault();
+          let valueget= JSON.parse(localStorage.getItem("get"));
+          console.log(valueget)
+          let uservalid=usernameget.value;
+          let passvalid=passwordget.value;
+          console.log(uservalid)
+          
+          let userval=valueget.find((val)=>{
+            return val["username"]===uservalid
+            console.log(userval)
+          })
+          let passval=valueget.find((val)=>{
+            return val["password"]===passvalid
+            console.log(passval)
+          })
+          if(userval && passval){
+            window.location.assign("./mysite.html")
+          }
+          else{
+            alert("credentials are invalid")
+          }
+        });
+        
+      </script>
+    </div>
+  </body>
+</html>

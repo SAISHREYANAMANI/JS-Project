@@ -1,0 +1,324 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    font-family: Poppins, sans-serif;
+  }
+  body {
+    background-color: #f5f8ff;
+  }
+  .wrapper {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .my-store{
+    margin-left:-1200px;
+
+  }
+  .headbuttons{
+  display: flex;
+    position:relative;
+    left:300px;
+    gap:15px
+    
+  
+   
+  }
+  #search-container {
+    margin: 1em 0;
+    margin-left: 500px
+  }
+  #search:active{
+    background-color: white;
+    color:#00ABE4
+  }
+  #search-container input {
+    background-color: transparent;
+    width: 40%;
+    border: 2px solid #00ABE4;
+    padding: 1em 0.3em; 
+  }
+  #search-container input:focus {
+    border-bottom-color: #00ABE4;
+  }
+  #search-container button {
+    padding: 1em 1em;
+    background-color: #00ABE4;
+    color: #ffffff;
+    border-radius: 5px;
+    display: inline-block;
+  }
+  .button-value {
+    border: 2px solid #00ABE4;
+    padding: 1em 2em;
+    border-radius: 3em;
+    background-color: #00ABE4;
+    color: white;
+    cursor: pointer;
+    margin-left: 150px;
+  } 
+  .active {
+    background-color: #00ABE4;
+    color: #ffffff;
+  }
+  #products {
+    /* border:1px solid; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: black;
+    margin-left: 25px;
+    margin-right:25px
+  }
+  .card {
+    background-color:transparent !important;
+    max-width: 18em;
+    margin-top: 1em;
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: 1em 2em 2.5em rgba(1, 2, 68, 0.08);
+    justify-content:space-evenly;
+  
+  }
+  .btns {
+    /* position: sticky; */
+    top: 0px;
+    width: 100%;
+    background-color:white;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1%;
+    height:70px;
+  }
+  .btns button{
+    background-color:white;
+    color:black;
+    border: 0px solid;
+    margin-bottom: 1%;
+  }
+  .product-card { 
+    display: inline-block;
+    width:400px;
+    height:400px;
+    color: black;
+    text-align: center;
+    margin: 10px;
+    border-radius: 40px;
+    padding: 10px;
+    box-shadow: 3px 3px #00ABE4;
+    background-color:#ffffff;
+    /* border:1px solid; */
+  }
+
+  button {
+    margin-top: 10px;
+    height: 60px;
+    width: 160px;
+    font-size:x-large;
+    padding: 10px;
+  }
+  /* #card{
+    height:100%;
+  } */
+  .button-value:active,button:active{
+    background-color: white;
+    color:#00ABE4;
+  }
+  .button-setting{
+    display:inline-block;
+    /* border:1px solid; */
+    /* margin-bottom: -5px;
+    margin-top: 10px; */
+    margin-bottom:80px;
+    padding:5px
+
+  }
+  .product-addCart {
+    border: 1px;
+    padding: 2px;
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    background-color: #00ABE4;
+    color: white;
+    border-radius: 15px;
+    border: 1px solid white;
+    /* display: inline-block; */
+    margin-right: 5px;
+    margin-left: 0; 
+    margin-top: 0% !important; 
+}
+
+.product-buy {
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    padding: 2px;
+    margin-left: 0; 
+    margin-top: 0% !important;
+    background-color: #00ABE4;
+    color: white;
+    border-radius: 15px;
+    border: 1px solid white;
+    /* display: inline-block; */
+    margin-right: 20px; 
+}
+  .image-container {
+    text-align: center;
+  }
+  img {
+    /* border:1px solid; */
+    max-width: 100%;
+    object-fit:fill;
+    height: 25em;
+  }
+  .container {
+    padding-top: 1em;
+    color: #110f29;
+  }
+  .container h5 {
+    font-weight: 500;
+  }
+ 
+  .hide {
+    display: none;
+  }
+
+
+/* @media screen and (max-width: 720px) {
+  img {
+    max-width: 100%;
+    object-fit: contain;
+    height: 10em;
+  }
+  .card {
+    max-width: 10em;
+    margin-top: 1em;
+  }
+  #products {
+    grid-template-columns: auto auto;
+    grid-column-gap: 1em;
+  }
+  #search-container {
+    margin: 1em auto; 
+    margin-left: 0; 
+    text-align: center; 
+  }
+} */
+
+/* @media screen and (max-width: 480px) {
+  img {
+    max-width: 100%;
+    object-fit: contain;
+    height: 8em;
+  }
+  .card {
+    max-width: 8em;
+    margin-top: 1em;
+  }
+  #products {
+    grid-template-columns: auto;
+    grid-column-gap: 1em;
+  }
+} */
+
+/* Existing styles go here */
+
+/* Media queries for tablet view (up to 768px) */
+@media screen and (max-width: 768px) {
+  body {
+    background-size: contain; /* Adjust background size for better visibility on smaller screens */
+  }
+
+  .header-container {
+    flex-direction: column; /* Stack header elements vertically on smaller screens */
+    text-align: center;
+  }
+
+  .user-section,
+  .cart-section {
+    margin-top: 10px;
+  }
+
+  .wrapper {
+    width: 90%; /* Adjust the wrapper width for better responsiveness */
+  }
+
+  #search-container {
+    margin-left: 0;
+  }
+
+  #buttons {
+    margin-left: 0;
+  }
+
+  .button-value {
+    margin-left: 0;
+    margin-right: 10px;
+  }
+
+  #products {
+    padding: 1em;
+  }
+
+  .card {
+    max-width: 100%;
+    margin-top: 1em;
+  }
+}
+
+/* Media queries for mobile view (up to 480px) */
+@media screen and (max-width: 480px) {
+  body {
+    background-size: cover; /* Adjust background size for better visibility on smaller screens */
+  }
+
+  .wrapper {
+    width: 80%; /* Adjust the wrapper width for better responsiveness on smaller screens */
+  }
+
+  #search-container {
+    text-align: center; /* Center the search container text on smaller screens */
+  }
+
+  #buttons {
+    margin-top: 10px;
+    text-align: center; /* Center the buttons on smaller screens */
+  }
+
+  .button-value {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  #products {
+    padding: 1em;
+  }
+
+  .card {
+    max-width: 100%;
+    margin-top: 1em;
+  }
+}
+
+header {
+  /* background-color:#077F6A; */
+  background-color:#00ABE4;
+  color:white;
+  padding: 1em 0;
+  text-align:start;
+}
+
+.header-container {
+  display: flex;
+  justify-content:space-evenly;
+  align-items:flex-end;
+  max-width: 95%;
+  margin: 55% auto;
+}
+
+

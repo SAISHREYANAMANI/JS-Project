@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: #E9F1FA;
+      }
+      h1 {
+        text-align: center;
+      }
+      #hme{
+        background-color:#00ABE4;
+        color:white;
+        padding: 1%;
+        margin-right: 1%;
+        border-radius: 5px;
+        width:10%;
+        border: 2px solid white;
+      }
+    </style>
+  </head>
+  <body>
+    <center><img src="https://img.freepik.com/premium-vector/order-has-been-confirmed-online-shopping-flat-illustration_343801-261.jpg?w=996" style="width: 550px;height: 550px; margin-top: 25px;" alt=""></center><br>
+    <center><button id="hme">Continue Shopping</button></center>
+    <script>
+      let btn = document.getElementById("hme");
+      btn.addEventListener("click", () => {
+        window.location.assign("./mysite.html");
+      });
+    </script>
+  </body>
+</html>

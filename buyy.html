@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color:  #00ABE4;
+      }
+    
+      .container {
+        position: relative;
+        left: 36%;
+        padding: 2%;
+        border: 5px solid white;
+        width: 350px;
+        height:450px;
+        box-shadow: 0px 0px 4px 4px silver;
+        border-radius: 40px;
+      }
+      #submit{
+        background-color:#00ABE4;
+        color:white;
+        padding: 2% 3%;
+        margin-right: 15%;
+        margin-left: 25%;
+        margin-bottom: 10%;
+        border-radius: 5px;
+        width: 48%;
+        border: 2px solid white;
+      }
+    
+     
+
+      input{
+        width: 100%;
+        font-size:large;
+        color:black;
+        background-color: #E9F1FA;
+        border: 1px solid white;
+        padding:2%;
+        box-shadow: 0px 0px 1px 1px white;
+        margin-bottom: 5%;
+      }
+      label{
+        font-size: larger;
+        color:white;
+        margin-bottom: 2%;
+      }
+      h1{
+        color: white;
+        text-shadow: 0 0 5px  #E9F1FA; 
+        margin-top:5%;
+        margin-left: 40%;
+        text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+      }
+    #submit:active{
+        background-color:white;
+        color: #00ABE4
+      }
+      
+    </style>
+  </head>
+  <body>
+    <h1>Payment form </h1>
+    <div class="container">
+            <label class="c1" for="Fname">Name:</label>
+            <input  id="id1" name="Fname" id="text" type="text" placeholder="enter name"/><br><br>
+            <label class="c2" for ="Number">Phone Number:</label>
+            <input  id="id2" type="tel" name="Number" id="number" placeholder="enter your number" pattern="[0-9]{10}"/><br><br>
+            <label class="c5" for="cardnum">CardNumber:</label>
+            <input  id="id5"type="number" id="number" name="cardnum" placeholder="enter cardnumber" autofocus>
+            <label class="c6" for="date">Validthru:</label>
+            <input  id="id6"type="date" id="date" name="date" placeholder="xyz@gmail.com"><br><br>
+            <label class="c7" for="choose country">choose payment method</label>
+            <select id="id7" name="choose country" id="country">
+              <option value="debit card">Debit card</option>
+              <option value="credit card">Credit card</option>
+              <option value="cashondelivery">cash on delivery</option>
+              <option value="UPI">UPI</option>
+            </select><br><br>
+            <button id="submit">PAYNOW</button>
+      </form>
+    </div>
+    <script>
+      let btn=document.getElementById("submit")
+      btn.addEventListener("click", () => {
+        window.location.assign("./productsuccess.html");
+      });
+    </script>
+   
+  </body>
+</html>

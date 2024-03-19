@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color:  #00ABE4;
+      }
+    
+      .container {
+        position: relative;
+        top: 100px;
+        left: 36%;
+        padding: 2%;
+        border: 5px solid white;
+        width: 350px;
+        height:400px;
+        box-shadow: 0px 0px 4px 4px silver;
+        border-radius: 40px;
+      }
+      #submit{
+        background-color:#00ABE4;
+        color:white;
+        padding: 2% 3%;
+        margin-right: 1%;
+        border-radius: 5px;
+        width: 48%;
+        border: 2px solid white;
+      }
+    
+      #log{
+        background-color:#00ABE4;
+        color:white;
+        padding: 2% 3%;
+        width: 48%;
+        margin-left: 1%;
+        border-radius: 5px;
+        border: 2px solid white;
+      }
+      #skip{
+        border: 2px solid white;
+        background-color:#00ABE4;
+        color:white;
+        padding: 2% 3%;
+        width: 40%;
+        margin-left: 30%;
+        border-radius: 5px;
+        margin-top: 5%;
+      }
+
+      input{
+        width: 100%;
+        font-size:large;
+        color:black;
+        background-color: #E9F1FA;
+        border: 1px solid white;
+        padding:2%;
+        box-shadow: 0px 0px 1px 1px white;
+        margin-bottom: 5%;
+      }
+      label{
+        font-size: larger;
+        color:white;
+        margin-bottom: 2%;
+      }
+      h1{
+        color: white;
+        text-shadow: 0 0 5px  #E9F1FA; 
+        margin-top:2%;
+        margin-left: 37%;
+        text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+      }
+    #skip:active,#log:active,#submit:active{
+        background-color:white;
+        color: #00ABE4
+      }
+      
+    </style>
+  </head>
+  <body>
+    <h1>Registration form </h1>
+    <div class="container">
+      <form action="">
+        <label for="username" id="userlbel" >Username : </label><br><br>
+        <input type="text" required placeholder="Capitalize the first letter(min 8 characters)" class="lbel" id="input" /><br />
+        <label for="Password" id="plabel">Password : </label><br><br>
+        <input type="password"required placeholder="Password..." class="lbel" /><br />
+        <label for="Cpass">Confirm Password : </label><br><br>
+        <input type="password" placeholder="Confirm Password..." class="lbel" /><br /><br>
+        <input type="Submit"  value="Register" id="submit" />
+        <input type="button" value="Login" id="log" />
+        <input type="button" value="skip" id="skip">
+      </form>
+    </div>
+    <script>
+      let divget = document.getElementsByTagName("div");
+      let divcon = divget[1];
+      let form = document.forms;
+      console.log(form[0]);
+      form[0].addEventListener("submit", (e) => {
+        e.preventDefault();
+        console.log(e);
+        
+        let username = e.target[0].value;
+        if (username[0] !== username[0].toUpperCase() && username.length < 10) {
+          alert("Write in correct format");
+          return;
+        }
+        console.log(username);
+
+        let password = e.target[1].value;
+        let passtype= /[A_Z]/.test(password)&&/[a-z]/.test(password)&&/\d/.test(password);
+        if ( passtype && password.length < 8) {
+          alert("Password is not in correct format");
+          return;
+        }
+        console.log(password);
+
+        let confirmpassword = e.target[2].value;
+        if (password !== confirmpassword) {
+          alert("password and confirmpassword are not same");
+          return;
+        }
+        console.log(confirmpassword);
+
+        let user = {username, password };
+        let reg = JSON.parse(localStorage.getItem("get")) || [];
+        
+        console.log(reg)
+        let duplicate=reg.find((val)=>val.username===username);
+        console.log(duplicate)
+        if(duplicate){
+          alert("user already exist");
+        }
+        else{
+          reg.push(user);
+          localStorage.setItem("get", JSON.stringify(reg));
+          alert("User registered successfully!..")
+          form.reset();
+        }
+      });
+      let Login=document.getElementById("log");
+      Login.addEventListener("click",()=>{
+        window.location.assign("./login.html")
+      })
+
+      let Skip=document.getElementById("skip")
+      Skip.addEventListener("click",()=>{
+        window.location.assign("./mysite.html")
+      })
+    </script>
+  </body>
+</html>

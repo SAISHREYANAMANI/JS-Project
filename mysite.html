@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Filter And Search</title>
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="index.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </head>
+ <body  style="background-color: #E9F1FA;">
+    <header>
+      <div class="header-container" id="search-container">
+        <a href="./mysite.html" id="home"> <img src="https://cdn-icons-png.freepik.com/512/5973/5973800.png?ga=GA1.1.1984617889.1710445186&" style="height:70px;width:70px; border-radius: 50%; position:absolute; left:25px;top:35px; " ></a>
+        <h1 class="my-store">MY STORE</h1>  
+        <div class="headbuttons">
+          <button id="cart" style="background-color: white; color: black;">View Cart</button>
+          <button id="logout" style="background-color: white; color: black;">LogOut</button> 
+        </div>
+      </div>
+    </header>
+
+    <div class="wrapper">
+      <div id="search-container">
+        <input
+          type="search" 
+          id="search-input"
+          placeholder="Search product name here.."
+        />
+        
+        <button id="search">Search</button>
+      </div>
+      <div id="btns">
+        <button class="button-value" id="btnmen">  Topwear</button>
+        <button  class="button-value" id="btnwomen"> Bottomwear</button>
+        <button  class="button-value"  id="btnjew"> Jacket</button>
+        <button  class="button-value" id="btnele">  Watch</button>
+      </div>
+      <div id="products"></div>
+    </div>
+
+    <div class="modal" id="myModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title">Added to Cart</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <p>Item has been added to your cart.</p>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="product-buy" data-bs-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+    <!-- Script -->
+     <script src="index.js"></script>
+  </body>
+</html>
